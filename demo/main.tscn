@@ -98,9 +98,6 @@ scroll_following = true
 
 [node name="AdMob" type="Node" parent="."]
 script = ExtResource("2")
-__meta__ = {
-"_editor_description_": ""
-}
 banner_id = "ca-app-pub-3940256099942544/6300978111"
 interstitial_id = "ca-app-pub-3940256099942544/1033173712"
 rewarded_id = "ca-app-pub-3940256099942544/5224354917"
@@ -116,3 +113,7 @@ is_personalized = false
 [connection signal="toggled" from="CanvasLayer/ItemList/BtnBannerMove" to="." method="_on_BtnBannerMove_toggled"]
 [connection signal="pressed" from="CanvasLayer/ItemList/BtnRewardedVideo" to="." method="_on_BtnRewardedVideo_pressed"]
 [connection signal="pressed" from="CanvasLayer/ItemList/BtnRewardedInterstitial" to="." method="_on_BtnRewardedInterstitial_pressed"]
+[connection signal="banner_loaded" from="AdMob" to="." method="_on_AdMob_banner_loaded"]
+[connection signal="interstitial_loaded" from="AdMob" to="." method="_on_AdMob_interstitial_loaded"]
+[connection signal="rewarded_interstitial_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_loaded"]
+[connection signal="rewarded_video_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_video_loaded"]

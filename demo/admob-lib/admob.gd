@@ -1,6 +1,6 @@
+@icon("res://admob-lib/icon.png")
 extends Node
-
-class_name AdMob, "res://admob-lib/icon.png"
+class_name AdMob
 
 # signals
 signal banner_loaded
@@ -30,21 +30,21 @@ signal consent_app_can_request_ad(consent_status)
 
 
 # properties
-export var is_real:bool setget is_real_set
-export var banner_on_top:bool = true
+@export var is_real : bool : set = is_real_set
+@export var banner_on_top:bool = true
 # SMART_BANNER is deprecated
-export(String, "ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD") var banner_size = "ADAPTIVE_BANNER"
-export var banner_id:String
-export var interstitial_id:String
-export var rewarded_id:String
-export var rewarded_interstitial_id:String
-export var child_directed:bool = false setget child_directed_set
-export var is_personalized:bool = true setget is_personalized_set
-export(String, "G", "PG", "T", "MA") var max_ad_content_rate = "G" setget max_ad_content_rate_set
+@export_enum("ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD") var banner_size : String = "ADAPTIVE_BANNER"
+@export var banner_id:String
+@export var interstitial_id:String
+@export var rewarded_id:String
+@export var rewarded_interstitial_id:String
+@export var child_directed:bool = false : set = child_directed_set
+@export var is_personalized:bool = true : set = is_personalized_set
+@export_enum("G", "PG", "T", "MA") var max_ad_content_rate : String = "G" : set = max_ad_content_rate_set
 
 # Testing consent flag
-export var ads_using_consent:bool setget ads_using_consent
-export var testing_consent:bool setget testing_consent_set
+@export var ads_using_consent:bool : set = ads_using_consent_set
+@export var testing_consent:bool : set = testing_consent_set
 
 
 # "private" properties
@@ -67,7 +67,7 @@ func is_real_set(new_val) -> void:
 func testing_consent_set(new_val) -> void:
 	testing_consent = new_val
 
-func ads_using_consent(new_val) -> void:
+func ads_using_consent_set(new_val) -> void:
 	ads_using_consent = new_val
 
 func child_directed_set(new_val) -> void:
