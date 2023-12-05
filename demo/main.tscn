@@ -1,141 +1,103 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://budqy847qvlqs"]
 
-[ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://admob-lib/admob.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://main.gd" id="1"]
+[ext_resource type="Script" path="res://admob-lib/admob.gd" id="2"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 1 )
-__meta__ = {
-"__editor_plugin_screen__": "3D"
-}
+script = ExtResource("1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DebugOut" type="RichTextLabel" parent="CanvasLayer"]
+[node name="ItemList" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = 120.0
-margin_right = 305.0
-margin_bottom = 208.0
-text = "
-"
-scroll_following = true
+offset_left = -273.0
+offset_top = -51.5
+offset_right = 273.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 3
 
-[node name="BtnReload" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -291.0
-margin_top = -217.0
-margin_right = -213.0
-margin_bottom = -142.0
+[node name="BtnReload" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 text = "Reload"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BtnInterstitial" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -166.077
-margin_right = 75.0
-margin_bottom = -91.0766
+[node name="BtnInterstitial" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 disabled = true
 text = "Show Interstitial"
 
-[node name="BtnBannerResize" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -251.0
-margin_top = -65.6294
-margin_right = -101.0
-margin_bottom = 9.37061
+[node name="BtnBannerResize" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 disabled = true
 text = "Resize Banner"
 
-[node name="BtnRequestConsentInfoUpdate" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -251.0
-margin_top = 31.0
-margin_right = -101.0
-margin_bottom = 106.0
+[node name="BtnRequestConsentInfoUpdate" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 text = "Request Consent"
 
-[node name="BtnResetConsent" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -251.0
-margin_top = 120.0
-margin_right = -101.0
-margin_bottom = 195.0
+[node name="BtnResetConsent" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 text = "Reset Consent"
 
-[node name="BtnBanner" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -65.6294
-margin_right = 75.0
-margin_bottom = 9.37061
+[node name="BtnBanner" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 disabled = true
 toggle_mode = true
 text = "Show/Hide Banner"
 
-[node name="BtnBannerMove" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 103.0
-margin_top = -65.6294
-margin_right = 253.0
-margin_bottom = 9.37061
+[node name="BtnBannerMove" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 disabled = true
 toggle_mode = true
 text = "Move Banner"
 
-[node name="BtnRewardedVideo" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = 31.0654
-margin_right = 76.0
-margin_bottom = 106.065
+[node name="BtnRewardedVideo" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 disabled = true
 text = "Show Rewarded Video"
 
-[node name="BtnRewardedInterstitial" type="Button" parent="CanvasLayer"]
+[node name="BtnRewardedInterstitial" type="Button" parent="CanvasLayer/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+disabled = true
+text = "Show Rewarded Interstitial"
+
+[node name="DebugOut" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 103.0
-margin_top = 31.0
-margin_right = 254.0
-margin_bottom = 106.0
-disabled = true
-text = "Show Rewarded Interstitial"
+text = "
+"
+scroll_following = true
 
 [node name="AdMob" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 __meta__ = {
 "_editor_description_": ""
 }
@@ -145,35 +107,12 @@ rewarded_id = "ca-app-pub-3940256099942544/5224354917"
 rewarded_interstitial_id = "ca-app-pub-3940256099942544/5354046379"
 is_personalized = false
 
-[connection signal="pressed" from="CanvasLayer/BtnReload" to="." method="_on_BtnReload_pressed"]
-[connection signal="pressed" from="CanvasLayer/BtnInterstitial" to="." method="_on_BtnInterstitial_pressed"]
-[connection signal="pressed" from="CanvasLayer/BtnBannerResize" to="." method="_on_BtnBannerResize_pressed"]
-[connection signal="pressed" from="CanvasLayer/BtnRequestConsentInfoUpdate" to="." method="_on_BtnRequestConsentInfoUpdate_pressed"]
-[connection signal="pressed" from="CanvasLayer/BtnResetConsent" to="." method="_on_BtnResetConsent_pressed"]
-[connection signal="toggled" from="CanvasLayer/BtnBanner" to="." method="_on_BtnBanner_toggled"]
-[connection signal="toggled" from="CanvasLayer/BtnBannerMove" to="." method="_on_BtnBannerMove_toggled"]
-[connection signal="pressed" from="CanvasLayer/BtnRewardedVideo" to="." method="_on_BtnRewardedVideo_pressed"]
-[connection signal="pressed" from="CanvasLayer/BtnRewardedInterstitial" to="." method="_on_BtnRewardedInterstitial_pressed"]
-[connection signal="banner_failed_to_load" from="AdMob" to="." method="_on_AdMob_banner_failed_to_load"]
-[connection signal="banner_loaded" from="AdMob" to="." method="_on_AdMob_banner_loaded"]
-[connection signal="consent_app_can_request_ad" from="AdMob" to="." method="_on_AdMob_consent_app_can_request_ad"]
-[connection signal="consent_info_update_failure" from="AdMob" to="." method="_on_AdMob_consent_info_update_failure"]
-[connection signal="consent_info_update_success" from="AdMob" to="." method="_on_AdMob_consent_info_update_success"]
-[connection signal="interstitial_clicked" from="AdMob" to="." method="_on_AdMob_interstitial_clicked"]
-[connection signal="interstitial_closed" from="AdMob" to="." method="_on_AdMob_interstitial_closed"]
-[connection signal="interstitial_failed_to_load" from="AdMob" to="." method="_on_AdMob_interstitial_failed_to_load"]
-[connection signal="interstitial_impression" from="AdMob" to="." method="_on_AdMob_interstitial_impression"]
-[connection signal="interstitial_loaded" from="AdMob" to="." method="_on_AdMob_interstitial_loaded"]
-[connection signal="interstitial_opened" from="AdMob" to="." method="_on_AdMob_interstitial_opened"]
-[connection signal="rewarded" from="AdMob" to="." method="_on_AdMob_rewarded"]
-[connection signal="rewarded_clicked" from="AdMob" to="." method="_on_AdMob_rewarded_clicked"]
-[connection signal="rewarded_impression" from="AdMob" to="." method="_on_AdMob_rewarded_impression"]
-[connection signal="rewarded_interstitial_closed" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_closed"]
-[connection signal="rewarded_interstitial_failed_to_load" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_failed_to_load"]
-[connection signal="rewarded_interstitial_failed_to_show" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_failed_to_show"]
-[connection signal="rewarded_interstitial_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_loaded"]
-[connection signal="rewarded_interstitial_opened" from="AdMob" to="." method="_on_AdMob_rewarded_interstitial_opened"]
-[connection signal="rewarded_video_closed" from="AdMob" to="." method="_on_AdMob_rewarded_video_closed"]
-[connection signal="rewarded_video_failed_to_load" from="AdMob" to="." method="_on_AdMob_rewarded_video_failed_to_load"]
-[connection signal="rewarded_video_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_video_loaded"]
-[connection signal="rewarded_video_opened" from="AdMob" to="." method="_on_AdMob_rewarded_video_opened"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnReload" to="." method="_on_BtnReload_pressed"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnInterstitial" to="." method="_on_BtnInterstitial_pressed"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnBannerResize" to="." method="_on_BtnBannerResize_pressed"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnRequestConsentInfoUpdate" to="." method="_on_BtnRequestConsentInfoUpdate_pressed"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnResetConsent" to="." method="_on_BtnResetConsent_pressed"]
+[connection signal="toggled" from="CanvasLayer/ItemList/BtnBanner" to="." method="_on_BtnBanner_toggled"]
+[connection signal="toggled" from="CanvasLayer/ItemList/BtnBannerMove" to="." method="_on_BtnBannerMove_toggled"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnRewardedVideo" to="." method="_on_BtnRewardedVideo_pressed"]
+[connection signal="pressed" from="CanvasLayer/ItemList/BtnRewardedInterstitial" to="." method="_on_BtnRewardedInterstitial_pressed"]

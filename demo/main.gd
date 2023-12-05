@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var admob = $AdMob
-onready var debug_out = $CanvasLayer/DebugOut
+@onready var admob = $AdMob
+@onready var debug_out = $CanvasLayer/DebugOut
 
 func _ready():
 	
@@ -11,7 +11,7 @@ func _ready():
 	else:
 		print('Ads with consent')
 # warning-ignore:return_value_discarded
-	get_tree().connect("screen_resized", self, "_on_resize")
+	get_tree().get_root().size_changed.connect(_on_resize)
 
 func loadAds() -> void:
 	admob.load_banner()
@@ -29,9 +29,9 @@ func _on_BtnBanner_toggled(button_pressed):
 
 func _on_BtnBannerMove_toggled(button_pressed: bool) -> void:
 	admob.move_banner(button_pressed)
-	$"CanvasLayer/BtnBannerResize".disabled = true
-	$"CanvasLayer/BtnBanner".disabled = true
-	$"CanvasLayer/BtnBannerMove".disabled = true
+	$%BtnBannerResize.disabled = true
+	$%BtnBanner.disabled = true
+	$%BtnBannerMove.disabled = true
 
 func _on_BtnBannerResize_pressed() -> void:
 	admob.banner_resize()
@@ -60,9 +60,9 @@ func _on_AdMob_banner_failed_to_load(error_code):
 	debug_out.text = debug_out.text + "Banner failed to load: Error code " + str(error_code) + "\n"
 
 func _on_AdMob_banner_loaded():
-	$"CanvasLayer/BtnBannerResize".disabled = false
-	$"CanvasLayer/BtnBanner".disabled = false
-	$"CanvasLayer/BtnBannerMove".disabled = false
+	$%BtnBannerResize.disabled = false
+	$%BtnBanner.disabled = false
+	$%BtnBannerMove.disabled = false
 	debug_out.text = debug_out.text + "Banner loaded\n"
 	debug_out.text = debug_out.text + "Banner size = " + str(admob.get_banner_dimension()) +  "\n"
 
@@ -70,7 +70,7 @@ func _on_AdMob_interstitial_opened():
 	debug_out.text = debug_out.text + "Interstitial opened\n"
 
 func _on_AdMob_interstitial_loaded():
-	$"CanvasLayer/BtnInterstitial".disabled = false
+	$%BtnInterstitial.disabled = false
 	debug_out.text = debug_out.text + "Interstitial loaded\n"
 
 func _on_AdMob_interstitial_clicked():
@@ -78,7 +78,7 @@ func _on_AdMob_interstitial_clicked():
 
 func _on_AdMob_interstitial_closed():
 	debug_out.text = debug_out.text + "Interstitial closed\n"
-	$"CanvasLayer/BtnInterstitial".disabled = false
+	$%BtnInterstitial.disabled = false
 
 func _on_AdMob_interstitial_failed_to_load(error_code):
 	debug_out.text = debug_out.text + "Interstitial failed to load: Error code " + str(error_code) + "\n"
@@ -100,21 +100,21 @@ func _on_AdMob_rewarded_impression():
 
 func _on_AdMob_rewarded_video_closed():
 	debug_out.text = debug_out.text + "Rewarded video closed\n"
-	$"CanvasLayer/BtnRewardedVideo".disabled = true
+	$%BtnRewardedVideo.disabled = true
 	admob.load_rewarded_video()
 
 func _on_AdMob_rewarded_video_failed_to_load(error_code):
 	debug_out.text = debug_out.text + "Rewarded video failed to load: Error code " + str(error_code) + "\n"
 
 func _on_AdMob_rewarded_video_loaded():
-	$"CanvasLayer/BtnRewardedVideo".disabled = false
+	$%BtnRewardedVideo.disabled = false
 	debug_out.text = debug_out.text + "Rewarded video loaded\n"
 
 func _on_AdMob_rewarded_video_opened():
 	debug_out.text = debug_out.text + "Rewarded video opened\n"
 
 func _on_AdMob_rewarded_interstitial_loaded() -> void:
-	$CanvasLayer/BtnRewardedInterstitial.disabled = false
+	$%BtnRewardedInterstitial.disabled = false
 	debug_out.text = debug_out.text + "Rewarded interstitial loaded\n"
 
 func _on_AdMob_rewarded_interstitial_opened() -> void:
@@ -122,7 +122,7 @@ func _on_AdMob_rewarded_interstitial_opened() -> void:
 
 func _on_AdMob_rewarded_interstitial_closed() -> void:
 	debug_out.text = debug_out.text + "Rewarded interstitial closed\n"
-	$CanvasLayer/BtnRewardedInterstitial.disabled = true
+	$%BtnRewardedInterstitial.disabled = true
 	admob.load_rewarded_interstitial()
 
 func _on_AdMob_rewarded_interstitial_failed_to_load(error_code) -> void:
